@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,7 +10,12 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono&family=Pacifico&display=swap" rel="stylesheet">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono&family=Pacifico&display=swap"
+    rel="stylesheet"
+>
+
 
 <style>
 
@@ -31,6 +38,13 @@ body {
 }
 
 
+/* Lock page until ENTER is clicked */
+
+body.locked {
+    overflow: hidden;
+}
+
+
 /* =========================================================
    LANDING PAGE
 ========================================================= */
@@ -49,6 +63,20 @@ body {
     align-items: center;
 
     text-align: center;
+
+    transition:
+        transform .8s ease,
+        opacity .8s ease;
+}
+
+
+/* Landing disappears after ENTER */
+
+.landing.entered {
+    transform: translateY(-100%);
+    opacity: 0;
+
+    pointer-events: none;
 }
 
 
@@ -78,8 +106,7 @@ body {
 
 
 /*
-    The stripes are deliberately NOT a gradient.
-    They give the sun that old 70s printed-ad look.
+    Printed 70s-style sun stripes
 */
 
 .sun::before,
@@ -211,7 +238,7 @@ body {
 
 
 /* =========================================================
-   SCROLL BUTTON
+   ENTER BUTTON
 ========================================================= */
 
 .scroll-button {
@@ -223,8 +250,6 @@ body {
     left: 50%;
 
     transform: translateX(-50%);
-
-    text-decoration: none;
 
     color: #fff1bb;
 
@@ -238,13 +263,22 @@ body {
 
     border: 3px solid #fff1bb;
 
-    transition: transform .25s;
+    cursor: pointer;
+
+    font-family: "DM Mono", monospace;
+
+    transition:
+        transform .25s,
+        background .25s;
 }
+
 
 .scroll-button:hover {
     transform:
         translateX(-50%)
         translateY(-5px);
+
+    background: #613326;
 }
 
 
@@ -270,6 +304,7 @@ nav {
     padding: 18px;
 }
 
+
 nav a {
     color: #f4e3a6;
 
@@ -278,7 +313,10 @@ nav a {
     font-size: 12px;
 
     letter-spacing: 2px;
+
+    transition: color .2s;
 }
+
 
 nav a:hover {
     color: #f58232;
@@ -297,6 +335,7 @@ nav a:hover {
     margin: auto;
 }
 
+
 .section-title {
     text-align: center;
 
@@ -306,7 +345,8 @@ nav a:hover {
 
     color: #d94f25;
 
-    text-shadow: 4px 4px 0 #40251c;
+    text-shadow:
+        4px 4px 0 #40251c;
 
     margin-bottom: 60px;
 }
@@ -325,6 +365,7 @@ nav a:hover {
     gap: 30px;
 }
 
+
 .card {
     background: #fff1bb;
 
@@ -338,10 +379,12 @@ nav a:hover {
     transition: .2s;
 }
 
+
 .card:hover {
     transform:
         translate(-4px, -4px);
 }
+
 
 .card h3 {
     margin-top: 0;
@@ -353,11 +396,13 @@ nav a:hover {
     font-size: 27px;
 }
 
+
 .card p {
     line-height: 1.8;
 
     font-size: 14px;
 }
+
 
 .card-date {
     font-size: 11px;
@@ -369,7 +414,7 @@ nav a:hover {
 
 
 /* =========================================================
-   NOTES / ANNOUNCEMENTS
+   NOTES
 ========================================================= */
 
 .notes {
@@ -378,15 +423,18 @@ nav a:hover {
     margin: auto;
 }
 
+
 .note {
     border-top: 4px solid #40251c;
 
     padding: 25px 0;
 }
 
+
 .note:last-child {
     border-bottom: 4px solid #40251c;
 }
+
 
 .note h3 {
     font-family: "Archivo Black", sans-serif;
@@ -395,6 +443,7 @@ nav a:hover {
 
     margin-bottom: 5px;
 }
+
 
 .note p {
     line-height: 1.9;
@@ -416,6 +465,7 @@ nav a:hover {
     gap: 25px;
 }
 
+
 .media-item {
     aspect-ratio: 1 / 1;
 
@@ -436,12 +486,14 @@ nav a:hover {
 
     font-size: 20px;
 
-    transition: .2s
+    transition: .2s;
 }
 
+
 .media-item:hover {
-            transform: translate(-4px, -4px);
-        }
+    transform:
+        translate(-4px, -4px);
+}
 
 
 /* =========================================================
@@ -488,10 +540,11 @@ footer {
 }
 
 </style>
+
 </head>
 
 
-<body>
+<body class="locked">
 
 
 <!-- =======================================================
@@ -516,20 +569,18 @@ footer {
             CORNER
         </h1>
 
-    
-
     </div>
 
 
-    <a href="#home" class="scroll-button">
+    <button class="scroll-button" id="enterButton">
         ENTER THE CORNER ↓
-    </a>
+    </button>
 
 </section>
 
 
 <!-- =======================================================
-     NAV
+     NAVIGATION
 ======================================================= -->
 
 <nav>
@@ -555,7 +606,14 @@ footer {
         WELCOME
     </h2>
 
-    <div style="text-align:center; max-width:750px; margin:auto; line-height:2;">
+    <div
+        style="
+            text-align: center;
+            max-width: 750px;
+            margin: auto;
+            line-height: 2;
+        "
+    >
 
         <p>
             This is my very own corner of the internet.
@@ -597,7 +655,7 @@ footer {
             </h3>
 
             <p>
-                A synthpop song I'm writing. 
+                A synthpop song I'm writing.
                 Here you can see the most recent version!
             </p>
 
@@ -645,20 +703,9 @@ footer {
     </h2>
 
 
-    <div class="notes">
-         <section class="section" id="notes">
-
-    <h2 class="section-title">
-        NOTES
-    </h2>
-
     <div class="notes" id="notesContainer">
 
         <!-- Notes are loaded from Supabase -->
-
-    </div>
-
-</section>
 
     </div>
 
@@ -718,13 +765,54 @@ footer {
 
 <script>
 
-const SUPABASE_URL = "YOUR_PROJECT_URL";
-const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
+const SUPABASE_URL = "https://ulvgwwxdywjlfkypjpup.supabase.co";
 
-const supabaseClient = supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
+const SUPABASE_KEY = "sb_publishable_4YifUaxT0O7XmErESHZ_lA_pgaZOEUJ";
+
+
+const supabaseClient =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+/* =========================================================
+   WELCOME SCREEN
+========================================================= */
+
+const landing =
+    document.getElementById("top");
+
+const enterButton =
+    document.getElementById("enterButton");
+
+
+enterButton.addEventListener("click", () => {
+
+    /* Unlock scrolling */
+
+    document.body.classList.remove("locked");
+
+
+    /* Animate landing screen away */
+
+    landing.classList.add("entered");
+
+
+    /* Move to HOME */
+
+    setTimeout(() => {
+
+        document
+            .getElementById("home")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }, 250);
+
+});
 
 
 /* =========================================================
@@ -739,14 +827,23 @@ async function loadNotes() {
 
     const { data, error } =
         await supabaseClient
+
         .from("notes")
+
         .select(
             "id, title, content, created_at"
         )
-        .eq("published", true)
+
+        .eq(
+            "published",
+            true
+        )
+
         .order(
             "created_at",
-            { ascending: false }
+            {
+                ascending: false
+            }
         );
 
 
@@ -757,10 +854,13 @@ async function loadNotes() {
             error
         );
 
+
         container.innerHTML = `
+
             <p>
                 Couldn't load notes right now.
             </p>
+
         `;
 
         return;
@@ -770,9 +870,11 @@ async function loadNotes() {
     if (!data || data.length === 0) {
 
         container.innerHTML = `
+
             <p>
                 No notes yet.
             </p>
+
         `;
 
         return;
@@ -785,13 +887,19 @@ async function loadNotes() {
     data.forEach(note => {
 
         const article =
-            document.createElement("article");
+            document.createElement(
+                "article"
+            );
 
-        article.className = "note";
+
+        article.className =
+            "note";
 
 
         const date =
-            new Date(note.created_at)
+            new Date(
+                note.created_at
+            )
             .toLocaleDateString(
                 "en-US",
                 {
@@ -819,7 +927,9 @@ async function loadNotes() {
         `;
 
 
-        container.appendChild(article);
+        container.appendChild(
+            article
+        );
 
     });
 
@@ -827,7 +937,7 @@ async function loadNotes() {
 
 
 /* =========================================================
-   BASIC HTML ESCAPING
+   HTML ESCAPING
 ========================================================= */
 
 function escapeHTML(text) {
@@ -835,7 +945,10 @@ function escapeHTML(text) {
     const element =
         document.createElement("div");
 
-    element.textContent = text;
+
+    element.textContent =
+        text;
+
 
     return element.innerHTML;
 
@@ -849,6 +962,7 @@ function escapeHTML(text) {
 loadNotes();
 
 </script>
+
 
 </body>
 </html>
