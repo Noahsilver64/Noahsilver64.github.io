@@ -373,8 +373,8 @@ button {
         NOAH'S CORNER / ADMIN
     </h1>
 
-    <button id="logoutButton">
-        LOG OUT
+    <button id="homeButton">
+        ← HOME
     </button>
 
 </header>
@@ -591,9 +591,9 @@ const loginError =
         "loginError"
     );
 
-const logoutButton =
+const homeButton =
     document.getElementById(
-        "logoutButton"
+        "homeButton"
     );
 
 
@@ -824,15 +824,12 @@ loginForm.addEventListener(
    LOG OUT
 ========================================================= */
 
-logoutButton.addEventListener(
+homeButton.addEventListener(
     "click",
-    async () => {
+    () => {
 
-        await supabaseClient
-            .auth
-            .signOut();
-
-        showLogin();
+        window.location.href =
+            "./index.html";
 
     }
 );
