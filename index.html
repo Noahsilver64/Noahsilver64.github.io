@@ -646,46 +646,19 @@ footer {
 
 
     <div class="notes">
+         <section class="section" id="notes">
 
+    <h2 class="section-title">
+        NOTES
+    </h2>
 
-        <article class="note">
+    <div class="notes" id="notesContainer">
 
-            <div class="card-date">
-                AUGUST 18, 2026, 11:13 PM AKST
-            </div>
+        <!-- Notes are loaded from Supabase -->
 
-            <h3>
-                Welcome to the site
-            </h3>
+    </div>
 
-            <p>
-                Hopefully I'll be able to update these without coding them
-                manually soon :sob:
-            </p>
-
-        </article>
-
-
-        <article class="note">
-
-            <div class="card-date">
-                AUGUST 18, 2026, 11:04
-            </div>
-
-            <h3>
-                First Note!
-            </h3>
-
-            <p>
-                The note system now exists.
-                Entirely manually coded.
-                Thank you ChatGPT for helping code this cool
-                design but WHY didn't I decide to make
-                these automatically posted??
-            </p>
-
-        </article>
-
+</section>
 
     </div>
 
@@ -737,46 +710,145 @@ footer {
 </footer>
 
 
+<!-- =======================================================
+     SUPABASE
+======================================================= -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-const SUPABASE_URL = "https://ulvgwwxdywjlfkypjpup.supabase.co";
-const SUPABASE_KEY = "sb_publishable_4YifUaxT0O7XmErESHZ_lA_pgaZOEUJ";
+const SUPABASE_URL = "YOUR_PROJECT_URL";
+const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
 
 const supabaseClient = supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
 
-</script>
-<script>
-async function testSupabase() {
+
+/* =========================================================
+   LOAD NOTES
+========================================================= */
+
+async function loadNotes() {
+
+    const container =
+        document.getElementById("notesContainer");
+
 
     const { data, error } =
         await supabaseClient
         .from("notes")
-        .select("id")
-        .limit(1);
+        .select(
+            "id, title, content, created_at"
+        )
+        .eq("published", true)
+        .order(
+            "created_at",
+            { ascending: false }
+        );
+
 
     if (error) {
 
         console.error(
-            "Supabase connection error:",
+            "Could not load notes:",
             error
         );
 
-    } else {
+        container.innerHTML = `
+            <p>
+                Couldn't load notes right now.
+            </p>
+        `;
 
-        console.log(
-            "Supabase connected!",
-            data
-        );
-
+        return;
     }
+
+
+    if (!data || data.length === 0) {
+
+        container.innerHTML = `
+            <p>
+                No notes yet.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML = "";
+
+
+    data.forEach(note => {
+
+        const article =
+            document.createElement("article");
+
+        article.className = "note";
+
+
+        const date =
+            new Date(note.created_at)
+            .toLocaleDateString(
+                "en-US",
+                {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                }
+            );
+
+
+        article.innerHTML = `
+
+            <div class="card-date">
+                ${date}
+            </div>
+
+            <h3>
+                ${escapeHTML(note.title)}
+            </h3>
+
+            <p>
+                ${escapeHTML(note.content)}
+            </p>
+
+        `;
+
+
+        container.appendChild(article);
+
+    });
+
 }
 
-testSupabase();
+
+/* =========================================================
+   BASIC HTML ESCAPING
+========================================================= */
+
+function escapeHTML(text) {
+
+    const element =
+        document.createElement("div");
+
+    element.textContent = text;
+
+    return element.innerHTML;
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+loadNotes();
+
 </script>
+
 </body>
 </html>
