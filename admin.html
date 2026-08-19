@@ -675,14 +675,19 @@ async function verifyAdmin() {
     const {
         data: {
             user
-        }
-    } =
-        await supabaseClient
-        .auth
-        .getUser();
+        },
+        error: userError
+    } = await supabaseClient.auth.getUser();
+
+
+    console.log("CURRENT USER:", user);
+    console.log("USER ERROR:", userError);
 
 
     if (!user) {
+
+        loginError.textContent =
+            "Supabase says you are not logged in.";
 
         showLogin();
 
@@ -693,36 +698,51 @@ async function verifyAdmin() {
 
     const {
         data: profile,
-        error
-    } =
-        await supabaseClient
+        error: profileError
+    } = await supabaseClient
 
         .from("profiles")
 
-        .select("is_admin")
+        .select("*")
 
         .eq(
             "id",
             user.id
         )
 
-        .single();
+        .maybeSingle();
 
 
-    if (
-        error ||
-        !profile ||
-        !profile.is_admin
-    ) {
+    console.log("USER ID:", user.id);
+    console.log("PROFILE:", profile);
+    console.log("PROFILE ERROR:", profileError);
 
-        await supabaseClient
-            .auth
-            .signOut();
+
+    if (profileError) {
 
         loginError.textContent =
-            "You don't have administrator access.";
+            "Profile lookup failed: " +
+            profileError.message;
 
-        showLogin();
+        return;
+
+    }
+
+
+    if (!profile) {
+
+        loginError.textContent =
+            "Your account is logged in, but there is no profile row for this user.";
+
+        return;
+
+    }
+
+
+    if (profile.is_admin !== true) {
+
+        loginError.textContent =
+            "Your profile exists, but is_admin is not true.";
 
         return;
 
@@ -732,7 +752,6 @@ async function verifyAdmin() {
     showDashboard();
 
 }
-
 
 /* =========================================================
    SHOW LOGIN
