@@ -16,7 +16,6 @@
     rel="stylesheet"
 >
 
-
 <style>
 
 /* =========================================================
@@ -28,15 +27,10 @@
 }
 
 body {
-
     margin: 0;
-
     background: #f4e3a6;
-
     color: #40251c;
-
     font-family: "DM Mono", monospace;
-
 }
 
 
@@ -45,37 +39,26 @@ body {
 ========================================================= */
 
 header {
-
     background: #40251c;
-
     color: #f4e3a6;
 
     padding: 25px 8%;
 
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
 }
 
-
 header h1 {
-
     margin: 0;
 
     font-family: "Archivo Black", sans-serif;
 
     font-size: 25px;
-
 }
 
-
-#logoutButton {
-
+#homeButton {
     background: #d94f25;
-
     color: #fff1bb;
 
     border: 3px solid #fff1bb;
@@ -85,14 +68,10 @@ header h1 {
     font-family: "DM Mono", monospace;
 
     cursor: pointer;
-
 }
 
-
-#logoutButton:hover {
-
+#homeButton:hover {
     background: #f58232;
-
 }
 
 
@@ -101,24 +80,19 @@ header h1 {
 ========================================================= */
 
 main {
-
     max-width: 1000px;
 
     margin: auto;
 
     padding: 60px 8%;
-
 }
 
-
 h2 {
-
     font-family: "Archivo Black", sans-serif;
 
     color: #d94f25;
 
     text-shadow: 3px 3px 0 #40251c;
-
 }
 
 
@@ -127,7 +101,6 @@ h2 {
 ========================================================= */
 
 #loginScreen {
-
     max-width: 500px;
 
     margin: 100px auto;
@@ -139,21 +112,17 @@ h2 {
     padding: 40px;
 
     box-shadow: 9px 9px 0 #d94f25;
-
 }
 
-
 #loginScreen h1 {
-
     font-family: "Archivo Black", sans-serif;
 
     color: #d94f25;
-
 }
 
-
 input,
-textarea {
+textarea,
+select {
 
     width: 100%;
 
@@ -170,25 +139,17 @@ textarea {
     color: #40251c;
 
     font-family: "DM Mono", monospace;
-
 }
 
-
 textarea {
-
     min-height: 220px;
 
     resize: vertical;
-
 }
-
 
 button {
-
     font-family: "DM Mono", monospace;
-
 }
-
 
 .primary-button {
 
@@ -203,23 +164,16 @@ button {
     cursor: pointer;
 
     letter-spacing: 2px;
-
 }
-
 
 .primary-button:hover {
-
     background: #613326;
-
 }
 
-
 .error {
-
     color: #d94f25;
 
     font-size: 13px;
-
 }
 
 
@@ -228,11 +182,8 @@ button {
 ========================================================= */
 
 #dashboard {
-
     display: none;
-
 }
-
 
 .editor {
 
@@ -245,9 +196,12 @@ button {
     box-shadow: 9px 9px 0 #d94f25;
 
     margin-bottom: 60px;
-
 }
 
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
 
 .checkbox-row {
 
@@ -258,27 +212,26 @@ button {
     gap: 10px;
 
     margin-bottom: 25px;
-
 }
-
 
 .checkbox-row input {
 
     width: auto;
 
     margin: 0;
-
 }
 
+
+/* =========================================================
+   NOTES
+========================================================= */
 
 .note-list {
 
     display: grid;
 
     gap: 20px;
-
 }
-
 
 .admin-note {
 
@@ -287,9 +240,7 @@ button {
     border: 4px solid #40251c;
 
     padding: 25px;
-
 }
-
 
 .admin-note h3 {
 
@@ -298,9 +249,7 @@ button {
     font-family: "Archivo Black", sans-serif;
 
     color: #d94f25;
-
 }
-
 
 .admin-note-actions {
 
@@ -311,9 +260,7 @@ button {
     margin-top: 20px;
 
     flex-wrap: wrap;
-
 }
-
 
 .admin-note-actions button {
 
@@ -326,14 +273,159 @@ button {
     color: #40251c;
 
     cursor: pointer;
-
 }
-
 
 .admin-note-actions button:hover {
 
     background: #f58232;
+}
 
+
+/* =========================================================
+   AUDIO
+========================================================= */
+
+.audio-upload {
+
+    background: #fff1bb;
+
+    border: 4px solid #40251c;
+
+    padding: 35px;
+
+    box-shadow: 9px 9px 0 #d94f25;
+
+    margin-bottom: 60px;
+}
+
+.audio-upload h2 {
+    margin-top: 0;
+}
+
+.file-input {
+
+    padding: 10px;
+
+    background: #f4d56a;
+
+    cursor: pointer;
+}
+
+.file-help {
+
+    font-size: 12px;
+
+    opacity: .7;
+
+    margin-top: -10px;
+
+    margin-bottom: 20px;
+}
+
+.audio-list {
+
+    display: grid;
+
+    gap: 20px;
+}
+
+.admin-audio {
+
+    background: #fff1bb;
+
+    border: 4px solid #40251c;
+
+    padding: 25px;
+
+    box-shadow: 6px 6px 0 #f58232;
+}
+
+.admin-audio h3 {
+
+    margin-top: 0;
+
+    margin-bottom: 8px;
+
+    font-family: "Archivo Black", sans-serif;
+
+    color: #d94f25;
+}
+
+.admin-audio p {
+
+    line-height: 1.7;
+
+    font-size: 13px;
+}
+
+.admin-audio audio {
+
+    width: 100%;
+
+    margin: 15px 0;
+}
+
+.audio-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.audio-actions button {
+
+    padding: 9px 15px;
+
+    border: 2px solid #40251c;
+
+    background: #f4d56a;
+
+    color: #40251c;
+
+    cursor: pointer;
+}
+
+.audio-actions button:hover {
+
+    background: #f58232;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.section-divider {
+
+    height: 4px;
+
+    background: #40251c;
+
+    margin: 70px 0;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.status.success {
+    color: #39733c;
+}
+
+.status.error {
+    color: #d94f25;
 }
 
 
@@ -350,7 +442,6 @@ button {
         gap: 20px;
 
         text-align: center;
-
     }
 
 }
@@ -380,6 +471,7 @@ button {
 </header>
 
 
+
 <!-- =======================================================
      LOGIN
 ======================================================= -->
@@ -394,7 +486,6 @@ button {
         This area is for Noah only.
     </p>
 
-
     <form id="loginForm">
 
         <label>
@@ -407,7 +498,6 @@ button {
             required
         >
 
-
         <label>
             PASSWORD
         </label>
@@ -418,7 +508,6 @@ button {
             required
         >
 
-
         <button
             type="submit"
             class="primary-button"
@@ -428,7 +517,6 @@ button {
 
     </form>
 
-
     <p
         id="loginError"
         class="error"
@@ -437,27 +525,27 @@ button {
 </div>
 
 
+
 <!-- =======================================================
      DASHBOARD
 ======================================================= -->
 
 <main id="dashboard">
 
+
+    <!-- ===================================================
+         NOTES
+    =================================================== -->
+
     <h2>
         NOTES
     </h2>
-
-
-    <!-- ===================================================
-         EDITOR
-    ==================================================== -->
 
     <div class="editor">
 
         <h2 id="editorTitle">
             NEW NOTE
         </h2>
-
 
         <label>
             TITLE
@@ -469,7 +557,6 @@ button {
             placeholder="Note title"
         >
 
-
         <label>
             CONTENT
         </label>
@@ -478,7 +565,6 @@ button {
             id="noteContent"
             placeholder="Write your note..."
         ></textarea>
-
 
         <div class="checkbox-row">
 
@@ -493,14 +579,12 @@ button {
 
         </div>
 
-
         <button
             class="primary-button"
             id="saveButton"
         >
             PUBLISH NOTE →
         </button>
-
 
         <button
             class="primary-button"
@@ -510,10 +594,9 @@ button {
             CANCEL
         </button>
 
-
         <p
             id="editorMessage"
-            class="error"
+            class="status"
         ></p>
 
     </div>
@@ -521,23 +604,116 @@ button {
 
     <!-- ===================================================
          EXISTING NOTES
-    ==================================================== -->
+    =================================================== -->
 
     <h2>
         EXISTING NOTES
     </h2>
 
-
     <div
         class="note-list"
         id="adminNotes"
     >
-
         Loading...
+    </div>
+
+
+    <div class="section-divider"></div>
+
+
+    <!-- ===================================================
+         AUDIO UPLOAD
+    =================================================== -->
+
+    <h2>
+        MUSIC / AUDIO
+    </h2>
+
+    <div class="audio-upload">
+
+        <h2>
+            UPLOAD AUDIO
+        </h2>
+
+        <p>
+            Upload music, demos, recordings, sound effects,
+            or anything else you'd like to put in the MUSIC section.
+        </p>
+
+
+        <label>
+            TITLE
+        </label>
+
+        <input
+            type="text"
+            id="audioTitle"
+            placeholder="e.g. Reaching High — Demo"
+        >
+
+
+        <label>
+            DESCRIPTION
+        </label>
+
+        <textarea
+            id="audioDescription"
+            placeholder="Tell people about this recording..."
+            style="min-height:120px;"
+        ></textarea>
+
+
+        <label>
+            AUDIO FILE
+        </label>
+
+        <input
+            type="file"
+            id="audioFile"
+            class="file-input"
+            accept="audio/*"
+        >
+
+        <p class="file-help">
+            MP3, WAV, OGG, M4A, FLAC, and other browser-supported
+            audio formats are accepted.
+        </p>
+
+
+        <button
+            class="primary-button"
+            id="uploadAudioButton"
+        >
+            UPLOAD AUDIO →
+        </button>
+
+
+        <p
+            id="audioUploadStatus"
+            class="status"
+        ></p>
 
     </div>
 
+
+    <!-- ===================================================
+         EXISTING AUDIO
+    =================================================== -->
+
+    <h2>
+        EXISTING AUDIO
+    </h2>
+
+    <div
+        class="audio-list"
+        id="adminAudio"
+    >
+        Loading...
+    </div>
+
+
 </main>
+
 
 
 <!-- =======================================================
@@ -597,6 +773,8 @@ const homeButton =
     );
 
 
+/* NOTES */
+
 const noteTitle =
     document.getElementById(
         "noteTitle"
@@ -635,6 +813,39 @@ const editorMessage =
 const adminNotes =
     document.getElementById(
         "adminNotes"
+    );
+
+
+/* AUDIO */
+
+const audioTitle =
+    document.getElementById(
+        "audioTitle"
+    );
+
+const audioDescription =
+    document.getElementById(
+        "audioDescription"
+    );
+
+const audioFile =
+    document.getElementById(
+        "audioFile"
+    );
+
+const uploadAudioButton =
+    document.getElementById(
+        "uploadAudioButton"
+    );
+
+const audioUploadStatus =
+    document.getElementById(
+        "audioUploadStatus"
+    );
+
+const adminAudio =
+    document.getElementById(
+        "adminAudio"
     );
 
 
@@ -677,11 +888,21 @@ async function verifyAdmin() {
             user
         },
         error: userError
-    } = await supabaseClient.auth.getUser();
+    } =
+        await supabaseClient
+        .auth
+        .getUser();
 
 
-    console.log("CURRENT USER:", user);
-    console.log("USER ERROR:", userError);
+    console.log(
+        "CURRENT USER:",
+        user
+    );
+
+    console.log(
+        "USER ERROR:",
+        userError
+    );
 
 
     if (!user) {
@@ -699,7 +920,8 @@ async function verifyAdmin() {
     const {
         data: profile,
         error: profileError
-    } = await supabaseClient
+    } =
+        await supabaseClient
 
         .from("profiles")
 
@@ -713,9 +935,20 @@ async function verifyAdmin() {
         .maybeSingle();
 
 
-    console.log("USER ID:", user.id);
-    console.log("PROFILE:", profile);
-    console.log("PROFILE ERROR:", profileError);
+    console.log(
+        "USER ID:",
+        user.id
+    );
+
+    console.log(
+        "PROFILE:",
+        profile
+    );
+
+    console.log(
+        "PROFILE ERROR:",
+        profileError
+    );
 
 
     if (profileError) {
@@ -753,6 +986,7 @@ async function verifyAdmin() {
 
 }
 
+
 /* =========================================================
    SHOW LOGIN
 ========================================================= */
@@ -782,6 +1016,8 @@ function showDashboard() {
 
     loadAdminNotes();
 
+    loadAdminAudio();
+
 }
 
 
@@ -794,7 +1030,6 @@ loginForm.addEventListener(
     async event => {
 
         event.preventDefault();
-
 
         loginError.textContent =
             "";
@@ -840,7 +1075,7 @@ loginForm.addEventListener(
 
 
 /* =========================================================
-   LOG OUT
+   HOME
 ========================================================= */
 
 homeButton.addEventListener(
@@ -892,7 +1127,7 @@ async function loadAdminNotes() {
     }
 
 
-    if (!data.length) {
+    if (!data || !data.length) {
 
         adminNotes.innerHTML =
             "<p>No notes yet.</p>";
@@ -956,16 +1191,13 @@ async function loadAdminNotes() {
             <div class="admin-note-actions">
 
                 <button
-                    onclick="editNote(${note.id})"
+                    data-action="edit"
                 >
                     EDIT
                 </button>
 
                 <button
-                    onclick="togglePublished(
-                        ${note.id},
-                        ${note.published}
-                    )"
+                    data-action="toggle"
                 >
                     ${
                         note.published
@@ -975,7 +1207,7 @@ async function loadAdminNotes() {
                 </button>
 
                 <button
-                    onclick="deleteNote(${note.id})"
+                    data-action="delete"
                 >
                     DELETE
                 </button>
@@ -983,6 +1215,35 @@ async function loadAdminNotes() {
             </div>
 
         `;
+
+
+        const buttons =
+            element.querySelectorAll(
+                "button"
+            );
+
+
+        buttons[0].addEventListener(
+            "click",
+            () => editNote(note.id)
+        );
+
+
+        buttons[1].addEventListener(
+            "click",
+            () =>
+                togglePublished(
+                    note.id,
+                    note.published
+                )
+        );
+
+
+        buttons[2].addEventListener(
+            "click",
+            () =>
+                deleteNote(note.id)
+        );
 
 
         adminNotes.appendChild(
@@ -1017,13 +1278,19 @@ saveButton.addEventListener(
             editorMessage.textContent =
                 "Please enter a title and content.";
 
+            editorMessage.className =
+                "status error";
+
             return;
 
         }
 
 
         editorMessage.textContent =
-            "";
+            "Saving...";
+
+        editorMessage.className =
+            "status";
 
 
         let result;
@@ -1033,7 +1300,9 @@ saveButton.addEventListener(
 
             result =
                 await supabaseClient
+
                 .from("notes")
+
                 .insert({
                     title,
                     content,
@@ -1044,7 +1313,9 @@ saveButton.addEventListener(
 
             result =
                 await supabaseClient
+
                 .from("notes")
+
                 .update({
                     title,
                     content,
@@ -1052,6 +1323,7 @@ saveButton.addEventListener(
                     updated_at:
                         new Date().toISOString()
                 })
+
                 .eq(
                     "id",
                     editingNoteId
@@ -1065,12 +1337,25 @@ saveButton.addEventListener(
             editorMessage.textContent =
                 result.error.message;
 
+            editorMessage.className =
+                "status error";
+
+            console.error(
+                result.error
+            );
+
             return;
 
         }
 
 
         resetEditor();
+
+        editorMessage.textContent =
+            "Note saved successfully.";
+
+        editorMessage.className =
+            "status success";
 
         loadAdminNotes();
 
@@ -1281,6 +1566,528 @@ function resetEditor() {
 
     editorMessage.textContent =
         "";
+
+}
+
+
+/* =========================================================
+   AUDIO UPLOAD
+========================================================= */
+
+uploadAudioButton.addEventListener(
+    "click",
+    uploadAudio
+);
+
+
+async function uploadAudio() {
+
+    const title =
+        audioTitle.value.trim();
+
+    const description =
+        audioDescription.value.trim();
+
+    const file =
+        audioFile.files[0];
+
+
+    /* -----------------------------------------------------
+       VALIDATION
+    ----------------------------------------------------- */
+
+    if (!title) {
+
+        audioUploadStatus.textContent =
+            "Please enter a title.";
+
+        audioUploadStatus.className =
+            "status error";
+
+        return;
+
+    }
+
+
+    if (!file) {
+
+        audioUploadStatus.textContent =
+            "Please choose an audio file.";
+
+        audioUploadStatus.className =
+            "status error";
+
+        return;
+
+    }
+
+
+    if (!file.type.startsWith("audio/")) {
+
+        audioUploadStatus.textContent =
+            "That doesn't appear to be an audio file.";
+
+        audioUploadStatus.className =
+            "status error";
+
+        return;
+
+    }
+
+
+    /* -----------------------------------------------------
+       DISABLE BUTTON
+    ----------------------------------------------------- */
+
+    uploadAudioButton.disabled =
+        true;
+
+    uploadAudioButton.textContent =
+        "UPLOADING...";
+
+
+    audioUploadStatus.textContent =
+        "Uploading audio file...";
+
+    audioUploadStatus.className =
+        "status";
+
+
+    try {
+
+        /* -------------------------------------------------
+           CREATE UNIQUE FILE PATH
+        ------------------------------------------------- */
+
+        const fileExtension =
+            file.name.includes(".")
+            ? file.name
+                .split(".")
+                .pop()
+                .toLowerCase()
+            : "audio";
+
+
+        const safeName =
+            title
+                .toLowerCase()
+                .replace(
+                    /[^a-z0-9]+/g,
+                    "-"
+                )
+                .replace(
+                    /^-+|-+$/g,
+                    ""
+                );
+
+
+        const uniqueName =
+            `${Date.now()}-${safeName}.${fileExtension}`;
+
+
+        const filePath =
+            uniqueName;
+
+
+        /* -------------------------------------------------
+           UPLOAD TO SUPABASE STORAGE
+        ------------------------------------------------- */
+
+        const {
+            error: uploadError
+        } =
+            await supabaseClient
+
+            .storage
+
+            .from("audio")
+
+            .upload(
+                filePath,
+                file,
+                {
+                    cacheControl: "3600",
+                    upsert: false,
+                    contentType: file.type
+                }
+            );
+
+
+        if (uploadError) {
+
+            throw uploadError;
+
+        }
+
+
+        audioUploadStatus.textContent =
+            "File uploaded. Saving audio information...";
+
+
+        /* -------------------------------------------------
+           GET PUBLIC URL
+        ------------------------------------------------- */
+
+        const {
+            data: publicURLData
+        } =
+            supabaseClient
+
+            .storage
+
+            .from("audio")
+
+            .getPublicUrl(
+                filePath
+            );
+
+
+        const publicURL =
+            publicURLData.publicUrl;
+
+
+        /* -------------------------------------------------
+           ADD RECORD TO AUDIO TABLE
+        ------------------------------------------------- */
+
+        const {
+            error: databaseError
+        } =
+            await supabaseClient
+
+            .from("audio")
+
+            .insert({
+                title: title,
+                description: description,
+                file_path: filePath
+            });
+
+
+        if (databaseError) {
+
+            /*
+                If the database insert fails after the
+                Storage upload succeeded, remove the file
+                so we don't leave an orphaned upload.
+            */
+
+            await supabaseClient
+
+                .storage
+
+                .from("audio")
+
+                .remove([
+                    filePath
+                ]);
+
+
+            throw databaseError;
+
+        }
+
+
+        /* -------------------------------------------------
+           SUCCESS
+        ------------------------------------------------- */
+
+        audioUploadStatus.textContent =
+            "Audio uploaded successfully!";
+
+        audioUploadStatus.className =
+            "status success";
+
+
+        audioTitle.value =
+            "";
+
+        audioDescription.value =
+            "";
+
+        audioFile.value =
+            "";
+
+
+        loadAdminAudio();
+
+
+    } catch (error) {
+
+        console.error(
+            "Audio upload error:",
+            error
+        );
+
+
+        audioUploadStatus.textContent =
+            "Upload failed: " +
+            error.message;
+
+        audioUploadStatus.className =
+            "status error";
+
+    }
+
+
+    uploadAudioButton.disabled =
+        false;
+
+    uploadAudioButton.textContent =
+        "UPLOAD AUDIO →";
+
+}
+
+
+/* =========================================================
+   LOAD EXISTING AUDIO
+========================================================= */
+
+async function loadAdminAudio() {
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+
+        .from("audio")
+
+        .select(
+            "id, title, description, file_path, created_at"
+        )
+
+        .order(
+            "created_at",
+            {
+                ascending: false
+            }
+        );
+
+
+    if (error) {
+
+        adminAudio.innerHTML =
+            "<p>Couldn't load audio.</p>";
+
+        console.error(
+            "Audio database error:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    if (!data || !data.length) {
+
+        adminAudio.innerHTML =
+            "<p>No audio uploaded yet.</p>";
+
+        return;
+
+    }
+
+
+    adminAudio.innerHTML =
+        "";
+
+
+    data.forEach(track => {
+
+        const element =
+            document.createElement(
+                "article"
+            );
+
+
+        element.className =
+            "admin-audio";
+
+
+        const date =
+            new Date(
+                track.created_at
+            )
+            .toLocaleDateString(
+                "en-US",
+                {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                }
+            );
+
+
+        const {
+            data: publicURLData
+        } =
+            supabaseClient
+
+            .storage
+
+            .from("audio")
+
+            .getPublicUrl(
+                track.file_path
+            );
+
+
+        const publicURL =
+            publicURLData.publicUrl;
+
+
+        element.innerHTML = `
+
+            <div class="card-date">
+                ${date}
+            </div>
+
+            <h3>
+                ${escapeHTML(track.title)}
+            </h3>
+
+            <p>
+                ${
+                    track.description
+                    ? escapeHTML(track.description)
+                    : "No description."
+                }
+            </p>
+
+            <audio
+                controls
+                preload="metadata"
+                src="${publicURL}"
+            ></audio>
+
+            <div class="audio-actions">
+
+                <button
+                    data-action="delete"
+                >
+                    DELETE AUDIO
+                </button>
+
+            </div>
+
+        `;
+
+
+        const deleteButton =
+            element.querySelector(
+                '[data-action="delete"]'
+            );
+
+
+        deleteButton.addEventListener(
+            "click",
+            () =>
+                deleteAudio(track)
+        );
+
+
+        adminAudio.appendChild(
+            element
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   DELETE AUDIO
+========================================================= */
+
+async function deleteAudio(track) {
+
+    const confirmed =
+        confirm(
+            `Delete "${track.title}" permanently?`
+        );
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    /* -----------------------------------------------------
+       DELETE FILE FROM STORAGE
+    ----------------------------------------------------- */
+
+    const {
+        error: storageError
+    } =
+        await supabaseClient
+
+        .storage
+
+        .from("audio")
+
+        .remove([
+            track.file_path
+        ]);
+
+
+    if (storageError) {
+
+        console.error(
+            "Storage delete error:",
+            storageError
+        );
+
+        alert(
+            "Couldn't delete the audio file: " +
+            storageError.message
+        );
+
+        return;
+
+    }
+
+
+    /* -----------------------------------------------------
+       DELETE DATABASE RECORD
+    ----------------------------------------------------- */
+
+    const {
+        error: databaseError
+    } =
+        await supabaseClient
+
+        .from("audio")
+
+        .delete()
+
+        .eq(
+            "id",
+            track.id
+        );
+
+
+    if (databaseError) {
+
+        console.error(
+            "Database delete error:",
+            databaseError
+        );
+
+        alert(
+            "The file was deleted, but the database record could not be removed: " +
+            databaseError.message
+        );
+
+        return;
+
+    }
+
+
+    loadAdminAudio();
 
 }
 
