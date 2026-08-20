@@ -35,6 +35,8 @@ body {
     color: #40251c;
 
     font-family: "DM Mono", monospace;
+
+    overflow-x: hidden;
 }
 
 
@@ -64,11 +66,8 @@ body.locked {
 
     text-align: center;
 
-    transition:
-        transform .8s ease,
-        opacity .8s ease;
+    z-index: 1;
 }
-
 
 /* Landing disappears after ENTER */
 
