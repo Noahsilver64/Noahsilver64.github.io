@@ -82,15 +82,19 @@ body.locked {
     text-align: center;
 
     z-index: 1;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
 }
 
 /* Landing disappears after ENTER */
 
 .landing.entered {
-    transform: translateY(-100%)
+  transform: translateY(100%); /* Use 100% to slide DOWN, or -100% to slide UP */
     opacity: 0;
     pointer-events: none;
-    display: none;
+}
+
+.landing.hidden {
+    display: none !important;
 }
 
 
