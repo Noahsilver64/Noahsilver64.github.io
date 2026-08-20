@@ -37,8 +37,23 @@ body {
     font-family: "DM Mono", monospace;
 
     overflow-x: hidden;
+
+    position: relative;
 }
 
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background: #f4d56a;
+
+    z-index: -2;
+
+    pointer-events: none;
+}
 
 /* Lock page until ENTER is clicked */
 
@@ -100,7 +115,7 @@ body.locked {
 
     overflow: hidden;
 
-    z-index: 0;
+    z-index: -1;
 
     pointer-events: none;
 }
@@ -163,8 +178,9 @@ body.locked {
         100% 100%
     );
 
-    z-index: 0;
-pointer-events: none;
+    z-index: -1;
+
+    pointer-events: none;
 }
 
 
