@@ -70,7 +70,7 @@ body.locked {
     height: 100vh;
     min-height: 650px;
 
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     
     background: #f4d56a;
@@ -99,7 +99,7 @@ body.locked {
 ========================================================= */
 
 .sun {
-    position: absolute;
+    position: relative;
 
     width: 430px;
     height: 430px;
@@ -112,8 +112,6 @@ body.locked {
     left: 50%;
 
     transform: translate(-50%, -57%);
-
-    overflow: hidden;
 
     z-index: -1;
 
@@ -154,7 +152,7 @@ body.locked {
 ========================================================= */
 
 .mountains {
-    position: absolute;
+    position: relative;
 
     bottom: 0;
     left: 0;
@@ -187,7 +185,7 @@ body.locked {
 .mountains::after {
     content: "";
 
-    position: absolute;
+    position: relative;
 
     bottom: 0;
     left: 0;
@@ -204,7 +202,7 @@ body.locked {
 ========================================================= */
 
 .landing-content {
-    position: relative;
+    position: absolute;
 
     z-index: 5;
 
